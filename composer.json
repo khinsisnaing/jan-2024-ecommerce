@@ -1,0 +1,17 @@
+{
+    "name": "acer-ksn/ecommerce",
+    "autoload": {
+        "psr-4": {
+            "AcerKsn\\Ecommerce\\": "src/",
+            "libs\\": "libs/",
+            "classes\\": "classes/"
+        }
+    },
+    "authors": [
+        {
+            "name": "khinsisnaing",
+            "email": "khinsisnaing.ksn@gmail.com"
+        }
+    ],
+    "require": {}
+}
