@@ -64,7 +64,7 @@ class Category extends Database
     
 }
 
-$category = new category();
+// $category = new category();
 
 
 

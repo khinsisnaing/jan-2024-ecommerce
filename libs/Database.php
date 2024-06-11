@@ -40,8 +40,8 @@ class Database
     }
 }
 
-$conn = new Database();
-print_r($conn->connect());
+// $conn = new Database();
+// print_r($conn->connect());
 
 
 ?>
