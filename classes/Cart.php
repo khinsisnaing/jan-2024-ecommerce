@@ -47,6 +47,17 @@ class Cart extends Database
         $result->execute([':user_id'=>$user_id]);
         return $result->rowCount();
     }
+
+    public function delete($user_id, $product_id)
+    {
+        $query = "DELETE FROM carts WHERE user_id=:user_id AND product_id=:product_id";
+        $result = $this->connect()->prepare($query);
+        $result->execute([
+            ":user_id" => $user_id,
+            ":product_id" => $product_id
+        ]);
+        return $result->rowCount();
+    }
 }
 
 

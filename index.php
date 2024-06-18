@@ -29,10 +29,10 @@ if(!isset($_COOKIE['user_id'])){
         </h2>
       </div>
 
-      <div>
+      <a href="checkout.php" class="btn btn-outline-primary">
         <span>Your Cart</span>
         <span class="badge bg-primary text-white"><?= $count ?></span>
-      </div>
+      </a>
 
       <div class="row">
         <?php foreach($products as $product): ?>
@@ -47,14 +47,22 @@ if(!isset($_COOKIE['user_id'])){
                 <h6><?= $product['name'] ?> </h6>
                 <h6>Price<span><?= $product['price'] ?></span></h6>
               </div>
+
               <div class="border text-center p-2 bg-white rounded mt-2">
+                <?php if(isset($count) && $carts->checkProduct($_COOKIE['user_id'], $product['id'])): ?>
+                  <form action="actions/cart-delete.php" method="post">
+                  <input type="hidden" name="product_id" value="<?= $product['id'] ?>">
+                  <button type="submit" class="btn btn-danger">Remove to cart</button>
+                </form>
+              <?php else: ?>
                 <form action="actions/cart-store.php" method="post">
                   <input type="hidden" name="product_id" value="<?= $product['id'] ?>">
                   <input type="hidden" name="product_price" value="<?= $product['price'] ?>">
-                  <button type="submit" class="btn"><i class="fas fa-cart-arrow-down"></i>Add to cart</button>
+                  <button type="submit" class="btn btn-success">Add to cart</button>
                 </form>
+              <?php endif; ?>
               </div>
-
+              
               <div class="new">
                 <span>
                   New
